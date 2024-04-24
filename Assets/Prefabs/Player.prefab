@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 3361035382336562650}
   - component: {fileID: 7097987731513648970}
   - component: {fileID: 775691936733143175}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -36,8 +36,7 @@ Transform:
   m_LocalPosition: {x: -7.83, y: -1, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2733172116712070480}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7016778629493997863
@@ -188,7 +187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  jumpForce: 200
+  jumpForce: 5
   rb: {fileID: 8118971241795618207}
   anim: {fileID: 2611454281648201849}
 --- !u!114 &3361035382336562650
@@ -322,65 +321,3 @@ MonoBehaviour:
   - {fileID: 0}
   bag: {fileID: 0}
   inventoryUI: {fileID: 0}
---- !u!1001 &2577926456494922244
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 409816593143239084}
-    m_Modifications:
-    - target: {fileID: 443762871744464724, guid: 666b26b6b6fe5f84692b58314a9ba5f5, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.6860008
-      objectReference: {fileID: 0}
-    - target: {fileID: 443762871744464724, guid: 666b26b6b6fe5f84692b58314a9ba5f5, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.2620001
-      objectReference: {fileID: 0}
-    - target: {fileID: 443762871744464724, guid: 666b26b6b6fe5f84692b58314a9ba5f5, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 443762871744464724, guid: 666b26b6b6fe5f84692b58314a9ba5f5, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 443762871744464724, guid: 666b26b6b6fe5f84692b58314a9ba5f5, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 443762871744464724, guid: 666b26b6b6fe5f84692b58314a9ba5f5, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 443762871744464724, guid: 666b26b6b6fe5f84692b58314a9ba5f5, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 443762871744464724, guid: 666b26b6b6fe5f84692b58314a9ba5f5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 443762871744464724, guid: 666b26b6b6fe5f84692b58314a9ba5f5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 443762871744464724, guid: 666b26b6b6fe5f84692b58314a9ba5f5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1624483104371024940, guid: 666b26b6b6fe5f84692b58314a9ba5f5, type: 3}
-      propertyPath: m_Name
-      value: GrenadeInPlayerHand
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 666b26b6b6fe5f84692b58314a9ba5f5, type: 3}
---- !u!4 &2733172116712070480 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 443762871744464724, guid: 666b26b6b6fe5f84692b58314a9ba5f5, type: 3}
-  m_PrefabInstance: {fileID: 2577926456494922244}
-  m_PrefabAsset: {fileID: 0}

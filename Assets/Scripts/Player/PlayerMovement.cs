@@ -48,11 +48,18 @@ public class PlayerMovement : MonoBehaviour
 
     public void JumpPlayer()
     {
-        if (Input.GetButtonDown("Jump") && _isJumping == false)
+        if (Input.GetButtonDown("Jump"))
         {
-            rb.AddForce(new Vector2(rb.velocity.x, jumpForce));
+            Debug.Log("Jump button pressed");
+            if (!_isJumping)
+            {
+                Debug.Log("Attempting to jump");
+                rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+                _isJumping = true; 
+            }
         }
     }
+
 
     private void OnCollisionEnter2D(Collision2D other)
     {
