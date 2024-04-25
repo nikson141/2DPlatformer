@@ -16,7 +16,7 @@ public class InventorySystem : MonoBehaviour
         bag.SetActive(true);
     }
     
-
+    
     public void OpenInventoryUI()
     {
         inventoryUI.SetActive(!inventoryUI.activeSelf);

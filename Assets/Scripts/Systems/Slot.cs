@@ -2,12 +2,14 @@ using UnityEngine;
 
 public class Slot : MonoBehaviour
 {
-    private InventorySystem inventorySystem;
+    [SerializeField] private InventorySystem inventorySystem;
     public int i;
+    [SerializeField] private SpawnSystem spawnSystem;
+
 
     private void Start()
     {
-        inventorySystem = GameObject.FindGameObjectWithTag("Player").GetComponent<InventorySystem>();
+        //inventorySystem = GameObject.FindGameObjectWithTag("Player").GetComponent<InventorySystem>();
     }
 
 
@@ -24,7 +26,7 @@ public class Slot : MonoBehaviour
     {
         foreach (Transform child in transform)
         {
-            child.GetComponent<SpawnSystem>().SpawnDroppedItem();
+            spawnSystem.SpawnDroppedItem();
             GameObject.Destroy(child.gameObject);
         }
     }
