@@ -17,7 +17,8 @@ GameObject:
   - component: {fileID: 3361035382336562650}
   - component: {fileID: 7097987731513648970}
   - component: {fileID: 775691936733143175}
-  m_Layer: 3
+  - component: {fileID: 5906954581246901216}
+  m_Layer: 0
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -321,3 +322,17 @@ MonoBehaviour:
   - {fileID: 0}
   bag: {fileID: 0}
   inventoryUI: {fileID: 0}
+--- !u!114 &5906954581246901216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 552248957677427333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e083a3464cb3d0c4da95599231e4bc2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shotgun: {fileID: 0}
+  i: 0

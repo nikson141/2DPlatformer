@@ -6,18 +6,17 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpForce;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Animator anim;
-    
 
     private float _horizontalInput;
-    
     private bool _isFacingRight;
     private bool _isJumping;
-    
+    private int _jumpCount; // Track the number of jumps
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        _jumpCount = 0; // Initialize jump count
     }
 
     private void Update()
@@ -30,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
     public void Movement()
     {
         _horizontalInput = Input.GetAxisRaw("Horizontal");
-        
+
         rb.velocity = new Vector2(_horizontalInput * moveSpeed, rb.velocity.y);
         anim.SetFloat("Speed", Mathf.Abs(_horizontalInput));
     }
@@ -50,30 +49,28 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetButtonDown("Jump"))
         {
-            Debug.Log("Jump button pressed");
             if (!_isJumping)
             {
-                Debug.Log("Attempting to jump");
+                rb.velocity = new Vector2(rb.velocity.x, 0f); // Reset vertical velocity before jumping
                 rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
-                _isJumping = true; 
+                _isJumping = true;
+                _jumpCount++;
+            }
+            else if (_jumpCount < 2) // Allow double jump
+            {
+                rb.velocity = new Vector2(rb.velocity.x, 0f); // Reset vertical velocity before jumping
+                rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+                _jumpCount++;
             }
         }
     }
-
 
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Ground"))
         {
             _isJumping = false;
-        }
-    }
-
-    private void OnCollisionExit2D(Collision2D other)
-    {
-        if (other.gameObject.CompareTag("Ground"))
-        {
-            _isJumping = true;
+            _jumpCount = 0; // Reset jump count when grounded
         }
     }
 }
