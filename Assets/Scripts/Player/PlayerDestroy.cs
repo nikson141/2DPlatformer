@@ -1,13 +1,15 @@
 using UnityEngine;
 
-
-public class PlayerDestroy : MonoBehaviour
+namespace Player
 {
-    [SerializeField] private float damage;
-    private void OnTriggerEnter2D(Collider2D other)
+    public class PlayerDestroy : MonoBehaviour
     {
-        IDamageable obj = other.GetComponent<IDamageable>();
+        [SerializeField] private float damage;
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            IDamageable obj = other.GetComponent<IDamageable>();
 
-        obj.TakeDamage(damage);
+            obj.TakeDamage(damage);
+        }
     }
 }

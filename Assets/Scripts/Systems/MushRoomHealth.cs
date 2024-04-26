@@ -1,20 +1,24 @@
+using Player;
 using UnityEngine;
 
-public class MushRoomHealth : MonoBehaviour
+namespace Systems
 {
-    private PlayerHealth playerHealth;
-    public GameObject healthEffect;
-    private float potion = 30f;
-
-    private void Start()
+    public class MushRoomHealth : MonoBehaviour
     {
-        playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
-    }
+        [SerializeField] private PlayerHealth playerHealth;
+        public GameObject healthEffect;
+        [SerializeField] private float potion = 30f;
 
-    public void Use()
-    {
-        Instantiate(healthEffect, playerHealth.transform.position, Quaternion.identity);
-        playerHealth.PlayerHealthPotion(potion);
-        Destroy(gameObject);
+        private void Start()
+        {
+            playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
+        }
+
+        public void Use()
+        {
+            Instantiate(healthEffect, playerHealth.transform.position, Quaternion.identity);
+            playerHealth.PlayerHealthPotion(potion);
+            Destroy(gameObject);
+        }
     }
 }

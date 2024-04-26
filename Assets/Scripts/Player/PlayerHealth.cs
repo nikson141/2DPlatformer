@@ -1,55 +1,58 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerHealth : MonoBehaviour, IDamageable
+namespace Player
 {
-    [SerializeField] private float maxHealth;
-    [SerializeField] private float currentHealth;
-    [SerializeField] private Image healthBar;
-
-
-    private Animator _anim;
-
-    private void Start()
+    public class PlayerHealth : MonoBehaviour, IDamageable
     {
-        currentHealth = maxHealth;
-        _anim = GetComponent<Animator>();
-    }
+        [SerializeField] private float maxHealth;
+        [SerializeField] private float currentHealth;
+        [SerializeField] private Image healthBar;
 
 
-    public void TakeDamage(float damage)
-    {
-        currentHealth -= damage;
+        private Animator _anim;
 
-        if (currentHealth <= 0)
-        {
-            currentHealth = 0;
-            Destroy(gameObject);
-
-        }
-        
-        //HealthBar is decreasing when we hurting
-        float fillAmount = currentHealth / maxHealth;
-        healthBar.fillAmount = fillAmount;
-        _anim.Play("Hurting");
-    }
-
-    public void PlayerHealthPotion(float potion)
-    {
-        currentHealth += potion;
-
-        if (currentHealth > maxHealth)
+        private void Start()
         {
             currentHealth = maxHealth;
+            _anim = GetComponent<Animator>();
         }
 
-        //HealthBar is decreasing when we hurting
-        float fillAmount = currentHealth / maxHealth;
-        healthBar.fillAmount = fillAmount;
-    }
-}
 
-public interface IDamageable
-{
-    public void TakeDamage(float damage);
+        public void TakeDamage(float damage)
+        {
+            currentHealth -= damage;
+
+            if (currentHealth <= 0)
+            {
+                currentHealth = 0;
+                Destroy(gameObject);
+
+            }
+        
+            //HealthBar is decreasing when we hurting
+            float fillAmount = currentHealth / maxHealth;
+            healthBar.fillAmount = fillAmount;
+            _anim.Play("Hurting");
+        }
+
+        public void PlayerHealthPotion(float potion)
+        {
+            currentHealth += potion;
+
+            if (currentHealth > maxHealth)
+            {
+                currentHealth = maxHealth;
+            }
+
+            //HealthBar is decreasing when we hurting
+            float fillAmount = currentHealth / maxHealth;
+            healthBar.fillAmount = fillAmount;
+        }
+    }
+
+    public interface IDamageable
+    {
+        public void TakeDamage(float damage);
+    }
 }
