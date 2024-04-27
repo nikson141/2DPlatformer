@@ -102,18 +102,17 @@ namespace Player
 
         private void WallSlide()
         {
-            if (isWalled() && _horizontalInput != 0f)
+            if (isWalled() && !_isJumping && rb.velocity.y < 0)
             {
                 _isWallSliding = true;
-                rb.velocity = new Vector2(rb.velocity.x, Mathf.Clamp(rb.velocity.y, -_wallSlidingSpeed,
-                    float.MaxValue));
+                rb.velocity = new Vector2(rb.velocity.x, Mathf.Clamp(rb.velocity.y, -_wallSlidingSpeed, float.MaxValue));
             }
-
             else
             {
                 _isWallSliding = false;
             }
         }
+
 
         private void WallJump()
         {
@@ -122,10 +121,9 @@ namespace Player
                 _isWallJumping = false;
                 _wallJumpingDir = -transform.localScale.x;
                 _wallJumpingCounter = _wallJumpingTime;
-                
+
                 CancelInvoke(nameof(StopWallJumping));
             }
-
             else
             {
                 _wallJumpingCounter -= Time.deltaTime;
@@ -134,7 +132,10 @@ namespace Player
             if (Input.GetButtonDown("Jump") && _wallJumpingCounter > 0f)
             {
                 _isWallJumping = true;
-                rb.velocity = new Vector2(_wallJumpingDir * _wallJumpingPower.x, _wallJumpingPower.y);
+
+                
+                float adjustedJumpForce = jumpForce * 0.75f; 
+                rb.velocity = new Vector2(_wallJumpingDir * _wallJumpingPower.x, adjustedJumpForce);
                 _wallJumpingCounter = 0f;
 
                 if (transform.localScale.x != _wallJumpingDir)
@@ -146,8 +147,10 @@ namespace Player
                 }
 
                 Invoke(nameof(StopWallJumping), _wallJumpingDuration);
+                Debug.Log("Player Jumping On Wall");
             }
         }
+
 
         private void StopWallJumping()
         {

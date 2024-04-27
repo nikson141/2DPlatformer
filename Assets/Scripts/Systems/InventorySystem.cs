@@ -1,25 +1,28 @@
-using TreeEditor;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class InventorySystem : MonoBehaviour
+namespace Systems
 {
-    public bool[] isFull;
-    public GameObject[] slots;
-
-    [SerializeField] private GameObject bag;
-    [SerializeField] private GameObject inventoryUI;
-
-    private void Start()
+    public class InventorySystem : MonoBehaviour
     {
-        inventoryUI.SetActive(false);
-        bag.SetActive(true);
-    }
+        public bool[] isFull;
+        public GameObject[] slots;
+
+        [SerializeField] private GameObject bag;
+        [SerializeField] private GameObject inventoryUI;
+
+        private void Start()
+        {
+            inventoryUI.SetActive(false);
+            bag.SetActive(true);
+        }
     
     
-    public void OpenInventoryUI()
-    {
-        inventoryUI.SetActive(!inventoryUI.activeSelf);
+        public void OpenInventoryUI()
+        {
+            inventoryUI.SetActive(!inventoryUI.activeSelf);
+        }
+    
+    
     }
 }
 

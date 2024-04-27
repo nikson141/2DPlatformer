@@ -1,33 +1,36 @@
 using UnityEngine;
 
-public class Slot : MonoBehaviour
+namespace Systems
 {
-    [SerializeField] private InventorySystem inventorySystem;
-    public int i;
-    [SerializeField] private SpawnSystem spawnSystem;
-
-
-    private void Start()
+    public class Slot : MonoBehaviour
     {
-        //inventorySystem = GameObject.FindGameObjectWithTag("Player").GetComponent<InventorySystem>();
-    }
+        [SerializeField] private InventorySystem inventorySystem;
+        public int i;
+        [SerializeField] private SpawnSystem spawnSystem;
 
 
-    private void Update()
-    {
-        if (transform.childCount <= 0)
+        private void Start()
         {
-            inventorySystem.isFull[i] = false;
+            //inventorySystem = GameObject.FindGameObjectWithTag("Player").GetComponent<InventorySystem>();
         }
-    }
 
 
-    public void DropItem()
-    {
-        foreach (Transform child in transform)
+        private void Update()
         {
-            spawnSystem.SpawnDroppedItem();
-            GameObject.Destroy(child.gameObject);
+            if (transform.childCount <= 0)
+            {
+                inventorySystem.isFull[i] = false;
+            }
+        }
+
+
+        public void DropItem()
+        {
+            foreach (Transform child in transform)
+            {
+                spawnSystem.SpawnDroppedItem();
+                GameObject.Destroy(child.gameObject);
+            }
         }
     }
 }
