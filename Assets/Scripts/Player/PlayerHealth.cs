@@ -1,3 +1,4 @@
+using Systems;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +9,7 @@ namespace Player
         [SerializeField] private float maxHealth;
         [SerializeField] private float currentHealth;
         [SerializeField] private Image healthBar;
+
 
 
         private Animator _anim;
@@ -27,10 +29,9 @@ namespace Player
             {
                 currentHealth = 0;
                 Destroy(gameObject);
-
+                
             }
-        
-            //HealthBar is decreasing when we hurting
+
             float fillAmount = currentHealth / maxHealth;
             healthBar.fillAmount = fillAmount;
             _anim.Play("Hurting");
