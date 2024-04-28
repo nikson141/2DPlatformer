@@ -21,8 +21,6 @@ namespace Systems
         {
             inventoryUI.SetActive(!inventoryUI.activeSelf);
         }
-    
-    
     }
 }
 

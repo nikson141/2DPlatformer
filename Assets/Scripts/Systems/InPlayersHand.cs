@@ -1,29 +1,22 @@
-using Systems;
+using System;
 using UnityEngine;
 
-public class InPlayersHand : MonoBehaviour
+namespace Systems
 {
-    [SerializeField] private GameObject shotgun;
-
-    private InventorySystem inventorySystem;
-    public int i;
-
-    private void Start()
+    public class InPlayersHand : MonoBehaviour
     {
-        shotgun.SetActive(false);
-        inventorySystem = GameObject.FindGameObjectWithTag("Player").GetComponent<InventorySystem>();
-    }
+        private Transform _player;
+        [SerializeField] private GameObject shotGun;
 
-    private void Update()
-    {
-        if (transform.childCount <= 0)
+        private void Start()
         {
-            inventorySystem.isFull[i] = false;
+            _player = GameObject.FindGameObjectWithTag("Player").transform;
         }
-    }
 
-    public void ShotGunInPlayersHand()
-    {
-        shotgun.SetActive(true);
+        public void Use()
+        {
+            Instantiate(shotGun, _player.position, shotGun.transform.rotation, _player.transform);
+            Destroy(gameObject);
+        }
     }
 }

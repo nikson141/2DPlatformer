@@ -1,14 +1,17 @@
 using System;
 using UnityEngine;
 
-public class Trigger : MonoBehaviour
+namespace Objects
 {
-    public event Action OnPlayerTriggerEnter;
-    private void OnTriggerEnter2D(Collider2D other)
+    public class Trigger : MonoBehaviour
     {
-        if (other.gameObject.CompareTag("Player"))
+        public event Action OnPlayerTriggerEnter;
+        private void OnTriggerEnter2D(Collider2D other)
         {
-            OnPlayerTriggerEnter?.Invoke();
+            if (other.gameObject.CompareTag("Player"))
+            {
+                OnPlayerTriggerEnter?.Invoke();
+            }
         }
     }
 }

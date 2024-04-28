@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3248739245836327570}
   - component: {fileID: 9124191407335795389}
   - component: {fileID: 3694252820800009966}
+  - component: {fileID: 5884367561985492875}
   m_Layer: 5
   m_Name: Shotgun 1
   m_TagString: Untagged
@@ -120,9 +121,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1976870972726036313, guid: f707641f6da54234284908a655472533, type: 3}
-        m_TargetAssemblyTypeName: Systems.ItemSpawnInPlayersHand, Assembly-CSharp
-        m_MethodName: InPlayersHand
+      - m_Target: {fileID: 5884367561985492875}
+        m_TargetAssemblyTypeName: Systems.InPlayersHand, Assembly-CSharp
+        m_MethodName: Use
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -132,3 +133,16 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &5884367561985492875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 907189910043468523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e083a3464cb3d0c4da95599231e4bc2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shotGun: {fileID: 5465361671894161568, guid: 405edafb7f991ee4fae38ad89f4b1644, type: 3}
