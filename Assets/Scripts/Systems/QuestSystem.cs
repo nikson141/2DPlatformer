@@ -10,8 +10,18 @@ namespace Systems
         [SerializeField] private Color completedColor;
         [SerializeField] private Color activeColor;
         [SerializeField] private GameObject potion;
+        [SerializeField] private Button startQuestButton;
 
-
+        private bool _isStarted;
+        private void Start()
+        {
+            if (questItem != null)
+            {
+                _isStarted = false;
+                
+                startQuestButton.onClick.AddListener(StartQuest);
+            }
+        }
 
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -21,6 +31,12 @@ namespace Systems
                 FinishQuest();
                 Destroy(potion);
             }
+        }
+
+        public void StartQuest()
+        {
+            _isStarted = true;
+            Debug.Log("Quest Started");
         }
 
         private void FinishQuest()
