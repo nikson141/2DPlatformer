@@ -67,9 +67,9 @@ namespace Systems
             _canChangeText = other.gameObject.CompareTag("Player");
         }
         
-        /*private void OnTriggerExit2D(Collider2D other)
+        private void OnTriggerExit2D(Collider2D other)
         {
             _canChangeText = !other.gameObject.CompareTag("Player");
-        }*/
+        }
     }
 }
