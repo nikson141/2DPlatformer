@@ -5,18 +5,21 @@ namespace Systems
 {
     public class InPlayersHand : MonoBehaviour
     {
-        private Transform _player;
-        [SerializeField] private GameObject shotGun;
+        [SerializeField] private GameObject shotgun;
+        [SerializeField] private GameObject shotgunInHand;
 
         private void Start()
         {
-            _player = GameObject.FindGameObjectWithTag("Player").transform;
+            shotgunInHand.SetActive(false);
         }
 
-        public void Use()
+        private void OnTriggerEnter2D(Collider2D other)
         {
-            Instantiate(shotGun, _player.position, shotGun.transform.rotation, _player.transform);
-            Destroy(gameObject);
+            if (other.gameObject.CompareTag("Player"))
+            {
+                shotgun.SetActive(false);
+                shotgunInHand.SetActive(true);
+            }
         }
     }
 }
