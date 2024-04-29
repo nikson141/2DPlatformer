@@ -16,6 +16,7 @@ public class WeaponPickUpSystem : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        // This Makes When Slot is full player can't take more items
         if (other.CompareTag("Player"))
         {
             for (int i = 0; i < inventorySystem.slots.Length; i++)

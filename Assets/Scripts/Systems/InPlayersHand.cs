@@ -15,6 +15,7 @@ namespace Systems
 
         private void OnTriggerEnter2D(Collider2D other)
         {
+            // When player enters the trigger player taking shotgun and spawning to his hands
             if (other.gameObject.CompareTag("Player"))
             {
                 shotgun.SetActive(false);

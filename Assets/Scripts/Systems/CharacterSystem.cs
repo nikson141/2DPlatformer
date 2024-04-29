@@ -27,7 +27,7 @@ namespace Systems
             
             if (_canChangeText && _textIndex <= texts.Length)
             {
-                StartCoroutine(DialogRoutine());
+                StartCoroutine(DialogRoutine()); // Changes text 3 second later
             }
             
             //Debug.Log(_textIndex);
@@ -39,7 +39,7 @@ namespace Systems
             {
                 dialogueText.text = t;
                 yield return new WaitForSeconds(dialogueDelay);
-                _textIndex++;
+                _textIndex++; //increments whole index
             }
 
             /*ChangeText(_textIndex);

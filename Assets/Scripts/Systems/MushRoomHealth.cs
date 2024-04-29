@@ -16,6 +16,7 @@ namespace Systems
 
         public void Use()
         {
+            // When player uses mushrooms player healing
             Instantiate(healthEffect, playerHealth.transform.position, Quaternion.identity);
             playerHealth.PlayerHealthPotion(potion);
             Destroy(gameObject);

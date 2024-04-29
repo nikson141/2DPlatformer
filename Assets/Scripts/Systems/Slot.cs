@@ -26,6 +26,7 @@ namespace Systems
 
         public void DropItem()
         {
+            // This loop is for to drop item and spawn 
             foreach (Transform child in transform)
             {
                 spawnSystem.SpawnDroppedItem();

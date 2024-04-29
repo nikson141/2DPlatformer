@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 2015255312953764050}
   - component: {fileID: 2402833941617240127}
   - component: {fileID: 4838130297956318757}
-  - component: {fileID: 3278483507757603689}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -408,19 +407,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shotgun: {fileID: 0}
   shotgunInHand: {fileID: 3356712301860505337}
---- !u!114 &3278483507757603689
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 552248957677427333}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b748f5c6ae24e3db70e8a527982073e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  obstacle: {fileID: 0}
 --- !u!1 &3874810445125881443
 GameObject:
   m_ObjectHideFlags: 0
