@@ -1,25 +1,35 @@
-using System;
+using System.Collections;
 using Player;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Systems
 {
     public class Bullet : MonoBehaviour
     {
-        [SerializeField] private float bulletLife;
+        [Header("Prefab References")]
+        [SerializeField] private float speed = 10f;
+        [SerializeField] private Rigidbody2D rb;
 
-        private void Awake()
+        private DamageSystem _damageSystem;
+        void Start()
         {
-            Destroy(gameObject, bulletLife);
+            rb.velocity = transform.right * speed;
+            StartCoroutine(DeleteBullet());
         }
 
-        private void OnTriggerEnter2D(Collider2D other)
+        private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (other.gameObject.CompareTag("Enemy"))
+            if (collision.gameObject.CompareTag("Enemy"))
             {
-                gameObject.SetActive(false);
+                collision.GetComponent<DamageSystem>().DamageTake();
+                Destroy(gameObject, 2f);
             }
+        }
+
+        IEnumerator DeleteBullet()
+        {
+            yield return new WaitForSeconds(2);
+            Destroy(gameObject);
         }
     }
 }

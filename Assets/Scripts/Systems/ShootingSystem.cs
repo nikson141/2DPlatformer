@@ -15,7 +15,6 @@ namespace Systems
             if (Input.GetMouseButton(1))
             {
                 ShootingFromWeapon();
-                bulletPrefab.GetComponent<Rigidbody2D>().velocity = spawnPosition.right * bulletSpeed;
             }
         }
 
